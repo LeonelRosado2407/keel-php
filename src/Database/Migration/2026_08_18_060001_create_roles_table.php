@@ -9,18 +9,16 @@ return new class
 {
     public function up(SchemaBuilder $schema): void
     {
-        $schema->create('users', function (Blueprint $table) {
+        $schema->create('roles', function (Blueprint $table) {
             $table->id();
-            $table->string('email');
-            $table->string('password');
             $table->string('name');
-            $table->unique('email');
+            $table->unique('name');
             $table->timestamps();
         });
     }
 
     public function down(SchemaBuilder $schema): void
     {
-        $schema->drop('users');
+        $schema->drop('roles');
     }
 };
